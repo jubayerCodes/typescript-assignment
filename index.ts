@@ -97,11 +97,10 @@ const getDayType = (day: Day): string => {
 
 const squareAsync = async (n: number): Promise<number> => {
   return new Promise((resolve, reject) => {
+    if (n < 0) {
+      reject("Error: Negative number not allowed");
+    }
     setTimeout(() => {
-      if (n < 0) {
-        reject("Error: Negative number not allowed");
-      }
-
       resolve(n * n);
     }, 1000);
   });
