@@ -30,6 +30,7 @@ JS supports OOP but loosely, with fewer tools for enforcement. It usually called
 <p>
     Typescript provides better blueprint of the code by using type alias, interface and abstract classes. It helps developers to code more efficiently. 
     <br>
+    <br>
     For Example:
 
     interface VehicleInterface{
@@ -66,4 +67,83 @@ Are a bug lover? Do you love to make mistake and play with bugs? Here comes Type
 
 <p>
 TypeScript provides rich editor features like code completion, parameter hints, and documentation in VS Code and other editors. Wich helps developer to develop faster and make less mistake. It makes life easy for developers
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h1>
+    Blog 2: Provide an example of using union and intersection types in TypeScript.
+</h1>
+
+<h3>Union Types</h3>
+
+<p>
+    Union Type allows to have a value with one of the several provided types. It can be any type from provided types. In terms of Objects, it ensures all the common properties in the union type and rest are optional.
+    <br>
+    <br>
+    For Example:
+
+    type Mobile = {
+        brand: string;
+        model: string;
+        price: number;
+        isSmartphone?: boolean;
+    }
+
+    type Laptop = {
+        brand: string;
+        model: string;
+        price: number;
+        isGaming?: boolean;
+    }
+
+    type Electronics = Mobile | Laptop
+
+    const electronics : Electronics = {
+        brand: "Apple",
+        model: "iPhone 14",
+        price: 999,
+        isSmartphone: true, // Here isSmartphone property is optional
+    }
+</p>
+
+<br>
+<br>
+
+<h3>Intersection Types</h3>
+<p>
+    Intersection Type ensures to have a value with all of the several provided types. It must be cover all the types from provided types. In terms of Objects, it ensures all the common and different properties in the Intersection type.
+    <br>
+    <br>
+    For Example:
+
+    type Mobile = {
+        brand: string;
+        model: string;
+        price: number;
+        isSmartphone?: boolean;
+    }
+
+    type Laptop = {
+        brand: string;
+        model: string;
+        price: number;
+        isGaming?: boolean;
+    }
+
+    type Electronics = Mobile & Laptop
+
+    const electronics : Electronics = {
+        brand: "Apple",
+        model: "iPhone 14",
+        price: 999,
+        isSmartphone: true,
+        isGaming?: true;
+
+        // Here isSmartphone and isGaming properties are not common in Mobile & Laptop Types. But Intersection forces to have these properties in Electronics Type.
+    }
 </p>
